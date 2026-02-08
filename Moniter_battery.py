@@ -14,8 +14,12 @@ class MoniterBattery:
         while self.running:
             curr_bstter_percent = psutil.sensors_battery().percent
             plugged_in = psutil.sensors_battery().power_plugged
-            if(curr_bstter_percent<=self.threshold and not plugged_in):
+            print(f"\n[DEBUG] Battery: {curr_bstter_percent}%, Plugged: {plugged_in}, Threshold: {self.threshold}%")
+
+            if(int(curr_bstter_percent)<=int(self.threshold) and not plugged_in):
                 print("warning battery low plugin")
+            else:
+                print("no alert")
             time.sleep(sleep_time)
 
     def start(self):

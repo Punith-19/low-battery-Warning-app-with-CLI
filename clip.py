@@ -9,18 +9,18 @@ class cliclass:
             try:
                 command = input("\n BMcli> ").strip().lower()
                 if command == "start":
-                    MoniterBattery().start()
+                    moniter.start()
                 elif command == "stop":
-                    MoniterBattery().stop()
+                    moniter.stop()
                 elif command == "exit":
-                    MoniterBattery().stop()
+                    moniter.stop()
                     print("Goodbye!")
                     sys.exit()
                 elif command == "set":
-                    MoniterBattery().set_threshold()
+                    moniter.set_threshold()
                 elif command == "help":
-                    MoniterBattery().cli_menu()
+                    moniter.cli_menu()
             except KeyboardInterrupt:
                 print("\n\nExiting...")
-                MoniterBattery.stop()
+                moniter.stop()
                 break
