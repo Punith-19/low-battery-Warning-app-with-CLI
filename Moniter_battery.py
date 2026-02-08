@@ -1,6 +1,7 @@
 import time
 import psutil
 import threading
+from warning_gui import warning
 class MoniterBattery:
     def __init__(self):
         self.running = False
@@ -17,6 +18,7 @@ class MoniterBattery:
             print(f"\n[DEBUG] Battery: {curr_bstter_percent}%, Plugged: {plugged_in}, Threshold: {self.threshold}%")
 
             if(int(curr_bstter_percent)<=int(self.threshold) and not plugged_in):
+                warning.lowbattery(curr_bstter_percent)
                 print("warning battery low plugin")
             else:
                 print("no alert")
