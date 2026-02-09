@@ -24,3 +24,10 @@ class cliclass:
                 print("\n\nExiting...")
                 moniter.stop()
                 break
+            except ValueError as e:
+                print(f"\n\tInput error: {e}")
+                print("\tPlease try again.")
+                
+            except Exception as e:
+                print(f"\n\tUnexpected error: {e}")
+                print("\tProgram will continue. Type 'help' for commands.")

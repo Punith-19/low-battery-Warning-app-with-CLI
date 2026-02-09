@@ -4,7 +4,7 @@ import threading
 from warning_gui import warning
 class MoniterBattery:
     def __init__(self):
-        self.running = False
+        self.running = True
         self.thread = None
         self.threshold = 30
 
@@ -25,15 +25,21 @@ class MoniterBattery:
             time.sleep(sleep_time)
 
     def start(self):
-        self.running = True
-        self.thread = threading.Thread(target = self.Battery_check_loop)
-        self.thread.daemon = True
-        self.thread.start()
-        print("\tMonitoring Started!!")
+        if self.running:
+            print("\tAlready running")
+        else:
+            self.running = True
+            self.thread = threading.Thread(target = self.Battery_check_loop)
+            self.thread.daemon = True
+            self.thread.start()
+            print("\tMonitoring Started!!")
 
     def stop(self):
-        self.running = False
-        print("\tMonitoring Stopped")
+        if self.running:
+            self.running = False
+            print("\tMonitoring Stopped")
+        else:
+            print("\tAlready stopped")
 
     def get_status(self):
         if self.running:
