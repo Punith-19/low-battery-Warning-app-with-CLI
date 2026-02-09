@@ -53,7 +53,7 @@ pip install psutil
 
 ### Method 1: Using Batch File (Easiest)
 Simply double-click `run.bat`
-- Note: when bat file is runned it will run in ven ie "myenv"
+- Note: when bat file is runned it will run in venv ie "myenv"
 
 ### Method 2: Using Command Prompt
 1. Open Command Prompt in the project folder
@@ -62,7 +62,7 @@ Simply double-click `run.bat`
 python Main.py
 ```
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 battery-alert-monitor/
